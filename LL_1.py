@@ -5,12 +5,16 @@ class Node:
         
 
 class LinkedList:
-    def __init__(self, value):
-        new_node = Node(value)
-        self.head = new_node
-        self.tail = new_node
-
-        
+    
+    def __init__(self, value = None):
+        if value is not None:
+            new_node = Node(value)
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.head = None
+            self.tail = None
+            
     def append(self, value):
         new_node = Node(value)
         if self.head == None:
@@ -33,8 +37,6 @@ class LinkedList:
         return slow
     ######################################
 
-
-
 my_linked_list = LinkedList(1)
 my_linked_list.append(2)
 my_linked_list.append(3)
@@ -43,3 +45,18 @@ my_linked_list.append(5)
 
 print( my_linked_list.find_middle_node().value )
 
+# papilduzdevums #
+my_linked_list2 = LinkedList()
+while True:
+    skaitlis = input("Ievadiet skaitli: ")
+    if skaitlis == "exit":
+        print("Programma beidz darbu")
+        break
+    elif not skaitlis.isdigit():
+        print("Ievadītā vērtība nav skaitlis")
+    else:
+        my_linked_list2.append(int(skaitlis))
+
+
+print( my_linked_list2.find_middle_node().value )
+############################################
